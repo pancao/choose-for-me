@@ -30,6 +30,9 @@
   <meta name="msapplication-TileColor" content="#0e90d2">
 
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/component.css" />
+  <link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+  <link rel="stylesheet" href="css/animate.css">
   <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -38,60 +41,302 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <script src="js/modernizr.custom.js"></script>
   <style>
+      * {
+               font-family: -apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+               outline:none !important;
+        }
+
+        body{
+            background: #E9F1EF;
+        }
+
+        .optionlist{
+            margin-top: 15px;
+        }
+
+       .form-control{
+           height: 50px;
+           border: 2px solid #E9F1EF;
+           font-size: 30px;
+           box-shadow: none;
+           padding: 6px 4px;
+           color: #1ECD97;
+           background: #E9F1EF;
+           transition: all 0.3s ease;
+           -moz-transition: all 0.3s ease;
+           -webkit-transition: all 0.3s ease;
+           -o-transition: all 0.3s ease;  
+                      border-radius: 25px 25px 25px 25px;         
+
+       }
+       .form-control:active{
+           border-radius: 25px 25px 25px 25px;
+           box-shadow: #448A72 0px 5px 30px -9px;
+           border: 2px solid #1ECD97;
+           background: #FFF;
+           color: #1ECD97;
+           padding: 6px 22px;
+           font-size: 23px;
+           transition: all 0.3s ease;
+           -moz-transition: all 0.3s ease;
+           -webkit-transition: all 0.3s ease;
+           -o-transition: all 0.3s ease; 
+       }      
+
+
+       .form-control:focus{
+           border-radius: 25px 25px 25px 25px;
+           box-shadow: #448A72 0px 5px 30px -9px;
+           border: 2px solid #1ECD97;
+           background: #FFF;
+           color: #1ECD97;
+           padding: 6px 22px;
+           font-size: 23px;
+           transition: all 0.3s ease;
+           -moz-transition: all 0.3s ease;
+           -webkit-transition: all 0.3s ease;
+           -o-transition: all 0.3s ease; 
+       }
+
+        .form-control::-moz-placeholder {
+            color: #AAA;
+            opacity: 1;
+        }
+        .form-control:-ms-input-placeholder {
+            color: #AAA;
+        }
+        .form-control::-webkit-input-placeholder {
+            color: #AAA;
+        }
+
+       .notice{
+           border-radius: 25px 25px 25px 25px;           
+           border: #F86486 2px solid;
+           background: #E9F1EF;
+           padding: 6px 22px;
+           font-size: 23px;
+           transition: all 0.3s ease;
+           -moz-transition: all 0.3s ease;
+           -webkit-transition: all 0.3s ease;
+           -o-transition: all 0.3s ease; 
+       }
+
+       .notice::-webkit-input-placeholder{
+           color: #F86486 !important;
+       }
+
+       .btn-lg{
+           border-radius: 30px 30px 30px 30px !important;
+           opacity: 1 !important;
+           height: 60px;
+       }
+
+       .error::before{
+           content: "选不出来" !important；
+       }
+
+       .error::after{
+           content: "选不出来" !important；
+       }
+
+       .error{
+
+       }
+
+       #showchoise{
+           font-size: 25px;
+           margin-top: 14px;
+           border-radius: 0px;
+       }
+
+       .option{
+            width: 32px;
+            height: 32px;
+            font-size: 10px;
+            margin-top: 9px;
+            border-radius: 50%;
+            padding-top: 0px;
+            padding-left: 2px;
+            border: 2px solid #1ECD97;
+            color: #1ECD97;
+           transition: all 0.3s ease;
+           -moz-transition: all 0.3s ease;
+           -webkit-transition: all 0.3s ease;
+           -o-transition: all 0.3s ease; 
+       }
+
+       .option:hover{
+           background: #1ECD97;
+           color: #E9F1EF;
+           border: 2px solid #1ECD97;
+           transition: all 0.3s ease;
+           -moz-transition: all 0.3s ease;
+           -webkit-transition: all 0.3s ease;
+           -o-transition: all 0.3s ease; 
+       }
+
+       .delete-option:hover{
+           background: #F86486;
+           color: #E9F1EF;
+           border: 2px solid #F86486;
+           transition: all 0.3s ease;
+           -moz-transition: all 0.3s ease;
+           -webkit-transition: all 0.3s ease;
+           -o-transition: all 0.3s ease; 
+       }
+
+       .optionlist{
+           -moz-transition: height 0.3s ease;
+           -webkit-transition: height 0.3s ease;
+           -o-transition: height 0.3s ease; 
+           max-height: 100%;
+       }
+
+       .form-group{
+           -moz-transition: all 0.3s ease;
+           -webkit-transition: all 0.3s ease;
+           -o-transition: all 0.3s ease; 
+       }
+
+       
+       .delete-option{
+           background: #999;
+           color: #E9F1EF;
+           border: 2px solid #999;
+       }
+
+       .option:focus{
+           background: #1ECD97;
+           color: #E9F1EF;
+           border: 2px solid #1ECD97;
+           box-shadow: none;
+           transition: all 0.3s ease;
+           -moz-transition: all 0.3s ease;
+           -webkit-transition: all 0.3s ease;
+           -o-transition: all 0.3s ease; 
+       }       
+
+       .iconfont{
+            font-size: 24px;
+            line-height: 24px;
+       }
+
+
+
+
+       .progress-button button {
+           font-size: 23px;
+       }
+
+       .alert{
+           background: none;
+           padding: 0;
+           border: none;
+           line-height: 43px;
+           font-weight: bold;
+           color: #555;
+           padding-left: 4px;
+       }
+
+       h2, .h2 {
+            padding-left: 4px;
+        }
 
   </style>
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-sm-6 col-sm-offset-3 text-center">
+        <div class="col-sm-6 col-sm-offset-3">
             <h2>选择困难解救器🙂</h2>
             <div class="optionlist">
             <form class="form-horizontal" role="form" id="last-option">
                 <div class="form-group">
                     <label class="control-label sr-only">Option 1</label>
-                    <div class="col-xs-9">
-                        <input type="text" class="form-control" id="1" placeholder="Option 1">
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" id="1" placeholder="点击添加第 1 个选项">
                     </div>
-                    <div class="col-xs-2">
-                        <button type="button" class="btn btn-default add-option" id="delete1">增加</button>
+                    <div class="col-xs-1">
+                        <button type="button" class="btn btn-default add-option option" id="delete1"><i class="iconfont">&#xe611;</i></button>
                     </div>
                 </div>                
             </form>  
             </div>        
-            <div>
-            <button type="button" class="btn btn-primary btn-lg btn-block" id="choose">帮我选</button>
+            <div class="progress-button">
+            <button id="choose"><span>快帮我选！</span></button>
+			    <svg class="progress-circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/></svg>
+				<svg class="checkmark" width="70" height="70"><path d="m31.5,46.5l15.3,-23.2"/><path d="m31.5,46.5l-8.5,-7.1"/></svg>
+				<svg class="cross" width="70" height="70"><path d="m35,35l-9.3,-9.3"/><path d="m35,35l9.3,9.3"/><path d="m35,35l-9.3,9.3"/><path d="m35,35l9.3,-9.3"/></svg>
             </div>
-            <div class="alert alert-success" role="alert" id="showchoise">点击治疗</div>
+            <div class="alert alert-success" role="alert" id="showchoise"></div>
         </div>
 </div>
-
+<script src="js/classie.js"></script>
+<script src="js/uiProgressButton.js"></script>
 <script>
     var optionNum = 1;
 
 
-
     $('.add-option').on('click', function() {
         optionNum += 1;
-        $('.optionlist').prepend('<form class="form-horizontal" role="form"><div class="form-group ' + optionNum +'"><label class="control-label sr-only">Option ' + optionNum +'</label><div class="col-xs-9"><input type="text" class="form-control" id="'+ optionNum +'" placeholder="Option ' +optionNum +'"></div><div class="col-xs-2"><button type="button" class="btn btn-default delete-option" onclick="deleteOption()">删除</button></div></div></form>');
+        $('.optionlist').prepend('<form class="form-horizontal animated bounceInLeft" role="form"><div class="form-group ' + optionNum +'"><label class="control-label sr-only">Option ' + optionNum +'</label><div class="col-xs-10"><input type="text" class="form-control" id="'+ optionNum +'" placeholder="新的选项"></div><div class="col-xs-1"><button type="button" class="btn btn-default delete-option option" onclick="deleteOption(this)"><i class="iconfont">&#xe60d;</i></button></div></div></form>');
     });
 
-    function deleteOption() {
-        $("."+ optionNum).remove();
+    function deleteOption(nowTr) {
+        $(nowTr).parent().parent().parent().fadeOut();
         optionNum -= 1;
         return optionNum;
     };
 
     $('#choose').on('click', function() {
         var options = [];
+        var state = true;
         for (i=1; i<=optionNum; i++) {
             var option = $("#" + i).val();
+            if ( option == "" ){
+            $("#" + i).attr("placeholder", "你不写我怎么选？");
+            $("#" + i).addClass("notice");
+            $("#showchoise").removeClass('animated fadeInUp');
+            $("#showchoise").addClass('animated fadeOut');
+            state = false;
+            } else {
             options.push(option);
-        };  
-        var choise = parseInt(Math.random()*optionNum);
-        $("#showchoise").text("我帮你选择了「"+options[choise]+"」。");     
+            state = true;
+            $("#" + i).removeClass("notice");
+            };
+        };
+
+        var t = setTimeout(function(){
+            if(state == true){  
+            var choise = parseInt(Math.random()*optionNum);  
+            $("#showchoise").html("我帮你选择了「"+options[choise]+"」。<br>"); 
+            $("#showchoise").removeClass('animated fadeOut');
+            $("#showchoise").addClass('animated fadeInUp');   
+        }; 
+        }, 2150);
+         
     });
+
+
+
+			[].slice.call( document.querySelectorAll( '.progress-button' ) ).forEach( function( bttn, pos ) {
+				new UIProgressButton( bttn, {
+					callback : function( instance ) {
+						var progress = 0,
+							interval = setInterval( function() {
+								progress = Math.min( progress + Math.random() * 0.1, 1 );
+								instance.setProgress( progress );
+
+								if( progress === 1 ) {
+									instance.stop( pos === 1 || pos === 3 ? -1 : 1 );
+									clearInterval( interval );
+								}
+							}, 80 );
+					}
+				} );
+			} ); 
 
 </script>
 </body>
