@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="css/animate.css">
   <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/jquery.hotkeys-0.7.9.min.js"></script>
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -42,6 +43,8 @@
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
   <script src="js/modernizr.custom.js"></script>
+  <script src="https://use.typekit.net/zaj3uaf.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <style>
       * {
                font-family: -apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
@@ -244,13 +247,22 @@
             padding-left: 4px;
         }
 
+        footer{
+            margin-left: 4px;
+            position: fixed;
+            bottom: 10px;
+            font-size: 15px;
+            color: #1ECD97;
+            opacity: 0.5;
+        }
+
   </style>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
-            <h2>选择困难解救器🙂</h2>
+            <h2>选择困难解救器🙄</h2>
             <div class="optionlist">
             <form class="form-horizontal" role="form" id="last-option">
                 <div class="form-group">
@@ -271,12 +283,14 @@
 				<svg class="cross" width="70" height="70"><path d="m35,35l-9.3,-9.3"/><path d="m35,35l9.3,9.3"/><path d="m35,35l-9.3,9.3"/><path d="m35,35l9.3,-9.3"/></svg>
             </div>
             <div class="alert alert-success" role="alert" id="showchoise"></div>
+            <footer>© Copyright Panro 2016</footer>
         </div>
 </div>
 <script src="js/classie.js"></script>
 <script src="js/uiProgressButton.js"></script>
 <script>
     var optionNum = 1;
+
 
 
     $('.add-option').on('click', function() {
@@ -318,6 +332,35 @@
         }, 2150);
          
     });
+
+$.hotkeys.add('enter', function(){ 
+        var options = [];
+        var state = true;
+        for (i=1; i<=optionNum; i++) {
+            var option = $("#" + i).val();
+            if ( option == "" ){
+            $("#" + i).attr("placeholder", "你不写我怎么选？");
+            $("#" + i).addClass("notice");
+            $("#showchoise").removeClass('animated fadeInUp');
+            $("#showchoise").addClass('animated fadeOut');
+            state = false;
+            } else {
+            options.push(option);
+            state = true;
+            $("#" + i).removeClass("notice");
+            };
+        };
+
+        var t = setTimeout(function(){
+            if(state == true){  
+            var choise = parseInt(Math.random()*optionNum);  
+            $("#showchoise").html("我帮你选择了「"+options[choise]+"」。<br>"); 
+            $("#showchoise").removeClass('animated fadeOut');
+            $("#showchoise").addClass('animated fadeInUp');   
+        }; 
+        }, 2150);
+
+}); 
 
 
 
