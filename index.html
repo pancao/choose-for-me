@@ -49,6 +49,10 @@
                outline:none !important;
         }
 
+        input{
+                -webkit-appearance: none;
+        }
+
         body{
             background: #E9F1EF;
         }
@@ -179,6 +183,16 @@
        }
 
        .delete-option:hover{
+           background: #F86486;
+           color: #E9F1EF;
+           border: 2px solid #F86486;
+           transition: all 0.3s ease;
+           -moz-transition: all 0.3s ease;
+           -webkit-transition: all 0.3s ease;
+           -o-transition: all 0.3s ease; 
+       }
+
+        .delete-option:active{
            background: #F86486;
            color: #E9F1EF;
            border: 2px solid #F86486;
@@ -352,5 +366,7 @@
 			} ); 
 
 </script>
+<script src="https://use.typekit.net/zaj3uaf.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
 </body>
 </html>
