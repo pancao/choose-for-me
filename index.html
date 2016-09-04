@@ -1,530 +1,82 @@
 ﻿<!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
-  <title>选择困难解救器</title>
-
-  <!-- Set render engine for 360 browser -->
-  <meta name="renderer" content="webkit">
-  <!-- No Baidu Siteapp-->
-  <meta http-equiv="Cache-Control" content="no-siteapp"/>
-  <link rel="icon" type="image/png" href="favicon.png">
-
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" sizes="192x192" href="app-icon72x72@2x.png">
-
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="PanPan"/>
-  <link rel="apple-touch-icon-precomposed" href="app-icon72x72@2x.png">
-
-  <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
-  <meta name="msapplication-TileColor" content="#0e90d2">
-
-  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/component.css" />
-  <link rel="stylesheet" type="text/css" href="css/iconfont.css" />
-  <link rel="stylesheet" href="css/animate.css">
-  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script src="js/jquery.hotkeys-0.7.9.min.js"></script>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <script src="js/modernizr.custom.js"></script>
-  <style>
-* {
-	outline: none !important;
-	font-family: -apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
-
-}
-
-input {
-	-webkit-appearance: none;
-}
-
-body {
-	background: #E9F1EF;
-	overflow-x:hidden;
-}
-
-.optionlist {
-	margin-top: 15px;
-}
-
-.form-control {
-	padding: 6px 4px;
-	height: 50px;
-	border: 2px solid #E9F1EF;
-	border-radius: 25px 25px 25px 25px;
-	background: #E9F1EF;
-	box-shadow: none;
-	color: #1ECD97;
-	font-size: 30px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.form-control:active {
-	padding: 6px 22px;
-	border: 2px solid #1ECD97;
-	border-radius: 25px 25px 25px 25px;
-	background: #FFF;
-	box-shadow: #448A72 0px 5px 30px -9px;
-	color: #1ECD97;
-	font-size: 23px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.form-control:focus {
-	padding: 6px 22px;
-	border: 2px solid #1ECD97;
-	border-radius: 25px 25px 25px 25px;
-	background: #FFF;
-	box-shadow: #448A72 0px 5px 30px -9px;
-	color: #1ECD97;
-	font-size: 23px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.form-control::-moz-placeholder {
-	color: #AAA;
-	opacity: 1;
-}
-
-.form-control:-ms-input-placeholder {
-	color: #AAA;
-}
-
-.form-control::-webkit-input-placeholder {
-	color: #AAA;
-}
-
-.notice {
-	padding: 6px 22px;
-	border: #F86486 2px solid;
-	border-radius: 25px 25px 25px 25px;
-	background: #E9F1EF;
-	font-size: 23px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.notice::-webkit-input-placeholder {
-	color: #F86486 !important;
-}
-
-.btn-lg {
-	height: 60px;
-	border-radius: 30px 30px 30px 30px !important;
-	opacity: 1 !important;
-}
-
-.error::before {
-	content: "选不出来" !important；;
-}
-
-.error::after {
-	content: "选不出来" !important；;
-}
-
-.error {
-}
-
-#showchoise {
-	margin-top: -31%;
-	padding-left: 5%;
-	border-radius: 0px;
-	font-size: 39px;
-}
-
-.option {
-	margin-top: 9px;
-	padding-top: 0px;
-	padding-left: 2px;
-	width: 32px;
-	height: 32px;
-	border: 2px solid #1ECD97;
-	border-radius: 50%;
-	color: #1ECD97;
-	font-size: 10px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.option:hover {
-	border: 2px solid #1ECD97;
-	background: #1ECD97;
-	color: #E9F1EF;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.delete-option:hover {
-	border: 2px solid #F86486;
-	background: #F86486;
-	color: #E9F1EF;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.delete-option:active {
-	border: 2px solid #F86486;
-	background: #F86486;
-	color: #E9F1EF;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.optionlist {
-	margin-top: 22px;
-	max-height: 100%;
-	-webkit-transition: height 0.3s ease;
-	-moz-transition: height 0.3s ease;
-	-o-transition: height 0.3s ease;
-}
-
-.form-group {
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-}
-
-.delete-option {
-	border: 2px solid #999;
-	background: #999;
-	color: #E9F1EF;
-}
-
-.option:focus {
-	border: 2px solid #1ECD97;
-	background: #1ECD97;
-	box-shadow: none;
-	color: #E9F1EF;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.iconfont {
-	font-size: 24px;
-	line-height: 24px;
-}
-
-.progress-button {
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.progress-button button {
-	font-size: 23px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.alert {
-	padding: 0;
-	padding-left: 4px;
-	border: none;
-	background: none;
-	color: #555;
-	font-weight: bold;
-	line-height: 43px;
-}
-
-h2, .h2 {
-	padding-left: 4px;
-}
-
-footer {
-	position: fixed;
-	bottom: 10px;
-	margin-left: 4px;
-	color: #1ECD97;
-	font-size: 15px;
-	opacity: 0.5;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.main {
-	padding-bottom: 40px;
-}
-
-a {
-	padding: 10px;
-    /* height: 20px; */
-	border-radius: 37px;
-	color: #F86486 !important;
-	text-decoration: none !important;
-	font-weight: normal;
-	font-size: 15px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-a:hover {
-	padding: 10px;
-	border-radius: 37px;
-	background-color: #F86486;
-	color: #E9F1EF !important;
-	text-decoration: none;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-a:active {
-	color: #E9F1EF;
-	text-decoration: none;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-a:visited {
-	color: #F86486;
-}
-
-
-.weibo {
-	font-size: 20px;
-}
-
-.share{
-padding-right: 8%;
-    padding-top: 10%;
-}
-
-#ticket{
-	display: none;
-	margin-top: 20px;
-	margin-bottom: 38px;
-	font-size: 30px;
-}
-
-@media screen and (min-width:300px) and (max-width:320px){
-	#showchoise{
-	font-size: 0.8em;
-	
-}
-.share{
-    padding-top: 1%;
-    padding-right: 0%;
-    margin-right: -9%;
-    transform: scale(0.7);
-	margin-top: -4%;
-}
-	}
-
-@media screen and (min-width:321px) and (max-width:375px){
-	#showchoise{
-	font-size: 0.9em;
-}
-.share{
-    padding-top: 2%;
-    padding-right: 0%;
-    margin-right: -9%;
-    transform: scale(0.7);
-}
-	}
-@media screen and (min-width:376px) and (max-width:414px){
-	#showchoise{
-	font-size: 0.9em;
-}
-.share{
-padding-right: 8%;
-    padding-top: 2%;
-}
-	}
-@media screen and (min-width:415px) and (max-width:639px){
-	#showchoise{
-	font-size: 0.9em;
-}
-.share{
-padding-right: 8%;
-    padding-top: 6%;
-}
-	}
-@media screen and (min-width:640px) and (max-width:767px){
-	#showchoise{
-	font-size: 1.3em;
-    line-height: 1.5em;
-}
-.share{
-padding-right: 8%;
-    padding-top: 8%;
-}
-	}
-@media screen and (min-width:768px) and (max-width:991px){
-	#showchoise{
-	font-size: 1.2em;
-    line-height: 1.5em;
-}
-.share{
-    padding-right: 8%;
-    padding-top: 0%;
-    margin-top: -6%;
-}
-	}
-
-@media screen and (min-width:992px) and (max-width:1200px){
-.share{
-padding-right: 8%;
-    padding-top: 6%;
-}
-	#showchoise{
-	font-size: 1em;
-    line-height: 1.5em;
-}
-	}
-
-
-  </style>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>选择困难解救器</title>
+<!-- Set render engine for 360 browser -->
+<meta name="renderer" content="webkit">
+<!-- No Baidu Siteapp-->
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="icon" type="image/png" href="favicon.png">
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="app-icon72x72@2x.png">
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="PanPan"/>
+<link rel="apple-touch-icon-precomposed" href="app-icon72x72@2x.png">
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+<meta name="msapplication-TileColor" content="#0e90d2">
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/component.css"/>
+<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="js/jquery.hotkeys-0.7.9.min.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script src="js/modernizr.custom.js"></script>
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-sm-offset-3 main">
-            <h3><img src="img/logo.svg"></h3>
-            <div class="optionlist">
-            <form class="form-horizontal" role="form" id="last-option">
-                <div class="form-group">
-                    <label class="control-label sr-only">Option 1</label>
-                    <div class="col-xs-10">
-                        <input type="text" class="form-control" id="1" placeholder="点击添加第 1 个选项">
-                    </div>
-                    <div class="col-xs-1">
-                        <button type="button" class="btn btn-default add-option option" id="delete1"><i class="iconfont">&#xe611;</i></button>
-                    </div>
-                </div>                
-            </form>  
-            </div>        
-            <div class="progress-button">
-            <button id="choose"><span>答应我，只点一次好吗？</span></button>
-			    <svg class="progress-circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/></svg>
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3 main">
+			<h3><img src="img/logo.svg"></h3>
+			<div class="optionlist">
+				<form class="form-horizontal" role="form" id="last-option">
+					<div class="form-group">
+						<label class="control-label sr-only">Option 1</label>
+						<div class="col-xs-10">
+							<input type="text" class="form-control" id="1" placeholder="点击添加第 1 个选项">
+						</div>
+						<div class="col-xs-1">
+							<button type="button" class="btn btn-default add-option option" id="delete1"><i class="iconfont">&#xe611;</i></button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="progress-button">
+				<button id="choose"><span>答应我，只点一次好吗？</span></button>
+				<svg class="progress-circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/></svg>
 				<svg class="checkmark" width="70" height="70"><path d="m31.5,46.5l15.3,-23.2"/><path d="m31.5,46.5l-8.5,-7.1"/></svg>
 				<svg class="cross" width="70" height="70"><path d="m35,35l-9.3,-9.3"/><path d="m35,35l9.3,9.3"/><path d="m35,35l-9.3,9.3"/><path d="m35,35l9.3,-9.3"/></svg>
-            </div>
-			<div id="ticket"><img src="img/ticket.svg">
-            <div class="alert alert-success" role="alert" id="showchoise">
-                
-            </div>
 			</div>
-            
-            
-            <footer>© Copyright Panro 2016</footer>
-        </div>
-</div>
-<script src="js/classie.js"></script>
-<script src="js/uiProgressButton.js"></script>
-<script>
-    var optionNum = 1;
-
-
-
-    $('.add-option').on('click', function() {
-    	optionNum += 1;
-    	$('.optionlist').prepend('<form class="form-horizontal animated bounceInLeft" role="form"><div class="form-group ' + optionNum + '"><label class="control-label sr-only">Option ' + optionNum + '</label><div class="col-xs-10"><input type="text" class="form-control" id="' + optionNum + '" placeholder="新的选项"></div><div class="col-xs-1"><button type="button" class="btn btn-default delete-option option" onclick="deleteOption(this)"><i class="iconfont">&#xe60d;</i></button></div></div></form>');
-    });
-
-    function deleteOption(nowTr) {
-    	$(nowTr).parent().parent().parent().fadeOut();
-    	optionNum -= 1;
-    	return optionNum;
-    };
-
-    $('#choose').on('click', function() {
-    	var options = [];
-    	var state = true;
-    	for (i = 1; i <= optionNum; i++) {
-    		var option = $("#" + i).val();
-    		if (option == "") {
-    			$("#" + i).attr("placeholder", "你不写我怎么选？");
-    			$("#" + i).addClass("notice");
-    			$("#" + i).addClass("animated shake");				
-    			$("#ticket").removeClass('animated bounceInLeft');
-    			$("#ticket").addClass('animated fadeOut');
-
-    			state = false;
-    		} else {
-    			options.push(option);
-    			state = true;
-    			$("#" + i).removeClass("notice");
-    		};
-    	};
-
-    	var t = setTimeout(function() {
-    		if (state == true) {
-    			var choise = parseInt(Math.random() * optionNum);
-    			$("#showchoise").html("<span class='animated fadeIn'>「" + options[choise] + "」</span><br><div class='text-right share'><a target='_blank' href='http://service.weibo.com/share/share.php?url=http://choose.twopan.cn&ralateUid=1731311442&language=zh_cn&appkey=2982404728&title=我用选择困难解救器选择了「" + options[choise] + "」，此真乃神器也。&pic=http://optionfor.me/img/ad.png'><i class='iconfont weibo'>&#xe619;</i> 分享至微博</div>");
-    			$("#ticket").show();
-    			$("#ticket").removeClass('animated fadeOut');
-    			$("#ticket").addClass('animated bounceInLeft');
-    		};
-    	}, 2150);
-
-    });
-
-
-
-    [].slice.call(document.querySelectorAll('.progress-button')).forEach(function(bttn, pos) {
-    	new UIProgressButton(bttn, {
-    		callback: function(instance) {
-    			var progress = 0,
-    				interval = setInterval(function() {
-    					progress = Math.min(progress + Math.random() * 0.1, 1);
-    					instance.setProgress(progress);
-
-    					if (progress === 1) {
-    						instance.stop(pos === 1 || pos === 3 ? -1 : 1);
-    						clearInterval(interval);
-    					}
-    				}, 80);
-    		}
-    	});
-    });
-</script>
-
-</body>
-</html>
+			<div id="ticket">
+				<img src="img/ticket.svg">
+				<div class="alert alert-success" role="alert" id="showchoise">
+				</div>
+			</div>
+			<footer>
+	  仅供娱乐，不为任何后果负责。
+			<br>
+			<span id="copyright">© Copyright Panro 2016.<span id="love"> In ♥ with Pan.</span></span>
+			</footer>
+		</div>
+	</div>
+	<script src="js/classie.js"></script>
+	<script src="js/uiProgressButton.js"></script>
+	<script src="js/main.js"></script>
+	</body>
+	</html>

@@ -1,0 +1,63 @@
+    var optionNum = 1;
+
+    $('.add-option').on('click', function() {
+    	optionNum += 1;
+    	$('.optionlist').prepend('<form class="form-horizontal animated bounceInLeft" role="form"><div class="form-group ' + optionNum + '"><label class="control-label sr-only">Option ' + optionNum + '</label><div class="col-xs-10"><input type="text" class="form-control" id="' + optionNum + '" placeholder="新的选项"></div><div class="col-xs-1"><button type="button" class="btn btn-default delete-option option" onclick="deleteOption(this)"><i class="iconfont">&#xe60d;</i></button></div></div></form>');
+    });
+
+    function deleteOption(nowTr) {
+    	$(nowTr).parent().parent().parent().fadeOut();
+    	optionNum -= 1;
+    	return optionNum;
+    };
+
+    $('#choose').on('click', function() {
+    	var options = [];
+    	var state = true;
+    	for (i = 1; i <= optionNum; i++) {
+    		var option = $("#" + i).val();
+    		if (option == "") {
+    			$("#" + i).attr("placeholder", "你不写我怎么选？");
+    			$("#" + i).addClass("notice");
+    			$("#" + i).addClass("animated shake");				
+    			$("#ticket").removeClass('animated bounceInLeft');
+    			$("#ticket").addClass('animated fadeOut');
+
+    			state = false;
+    		} else {
+    			options.push(option);
+    			state = true;
+    			$("#" + i).removeClass("notice");
+    		};
+    	};
+
+    	var t = setTimeout(function() {
+    		if (state == true) {
+    			var choise = parseInt(Math.random() * optionNum);
+    			$("#showchoise").html("<span class='animated fadeIn'>「" + options[choise] + "」</span><br><div class='text-right share'><a target='_blank' href='http://service.weibo.com/share/share.php?url=http://optionfor.me&ralateUid=1731311442&language=zh_cn&appkey=2982404728&title=我用选择困难解救器选择了「" + options[choise] + "」，此真乃神器也。&pic=http://optionfor.me/img/ad.png&searchPic=false'><i class='iconfont weibo'>&#xe619;</i> 分享至微博</div>");
+    			$("#ticket").show();
+    			$("#ticket").removeClass('animated fadeOut');
+    			$("#ticket").addClass('animated bounceInLeft');
+    		};
+    	}, 2250);
+
+    });
+
+
+
+    [].slice.call(document.querySelectorAll('.progress-button')).forEach(function(bttn, pos) {
+    	new UIProgressButton(bttn, {
+    		callback: function(instance) {
+    			var progress = 0,
+    				interval = setInterval(function() {
+    					progress = Math.min(progress + Math.random() * 0.1, 1);
+    					instance.setProgress(progress);
+
+    					if (progress === 1) {
+    						instance.stop(pos === 1 || pos === 3 ? -1 : 1);
+    						clearInterval(interval);
+    					}
+    				}, 80);
+    		}
+    	});
+    });

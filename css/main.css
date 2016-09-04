@@ -1,0 +1,427 @@
+* {
+	outline: none !important;
+	font-family: -apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+
+input {
+	-webkit-appearance: none;
+}
+
+body {
+	overflow-x: hidden;
+	background: #E9F1EF;
+}
+
+.optionlist {
+	margin-top: 15px;
+}
+
+.form-control {
+	padding: 6px 4px;
+	height: 50px;
+	border: 2px solid #E9F1EF;
+	border-radius: 25px 25px 25px 25px;
+	background: #E9F1EF;
+	box-shadow: none;
+	color: #1ECD97;
+	font-size: 30px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.form-control:active {
+	padding: 6px 22px;
+	border: 2px solid #1ECD97;
+	border-radius: 25px 25px 25px 25px;
+	background: #FFF;
+	box-shadow: #448A72 0px 5px 30px -9px;
+	color: #1ECD97;
+	font-size: 23px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.form-control:focus {
+	padding: 6px 22px;
+	border: 2px solid #1ECD97;
+	border-radius: 25px 25px 25px 25px;
+	background: #FFF;
+	box-shadow: #448A72 0px 5px 30px -9px;
+	color: #1ECD97;
+	font-size: 23px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.form-control::-moz-placeholder {
+	color: #AAA;
+	opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+	color: #AAA;
+}
+
+.form-control::-webkit-input-placeholder {
+	color: #AAA;
+}
+
+.notice {
+	padding: 6px 22px;
+	border: #F86486 2px solid;
+	border-radius: 25px 25px 25px 25px;
+	background: #E9F1EF;
+	font-size: 23px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.notice::-webkit-input-placeholder {
+	color: #F86486 !important;
+}
+
+.btn-lg {
+	height: 60px;
+	border-radius: 30px 30px 30px 30px !important;
+	opacity: 1 !important;
+}
+
+.error::before {
+	content: "选不出来" !important；;
+}
+
+.error::after {
+	content: "选不出来" !important；;
+}
+
+.error {
+}
+
+#showchoise {
+	margin-top: -31%;
+	padding-left: 5%;
+	border-radius: 0px;
+	font-size: 39px;
+	cursor: default;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+.option {
+	margin-top: 9px;
+	padding-top: 0px;
+	padding-left: 2px;
+	width: 32px;
+	height: 32px;
+	border: 2px solid #1ECD97;
+	border-radius: 50%;
+	color: #1ECD97;
+	font-size: 10px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.option:hover {
+	border: 2px solid #1ECD97;
+	background: #1ECD97;
+	color: #E9F1EF;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.delete-option:hover {
+	border: 2px solid #F86486;
+	background: #F86486;
+	color: #E9F1EF;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.delete-option:active {
+	border: 2px solid #F86486;
+	background: #F86486;
+	color: #E9F1EF;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.optionlist {
+	margin-top: 22px;
+	max-height: 100%;
+	-webkit-transition: height 0.3s ease;
+	-moz-transition: height 0.3s ease;
+	-o-transition: height 0.3s ease;
+}
+
+.form-group {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+}
+
+.delete-option {
+	border: 2px solid #999;
+	background: #999;
+	color: #E9F1EF;
+}
+
+.option:focus {
+	border: 2px solid #1ECD97;
+	background: #1ECD97;
+	box-shadow: none;
+	color: #E9F1EF;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.iconfont {
+	font-size: 24px;
+	line-height: 24px;
+}
+
+.progress-button {
+	cursor: default;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+h3 {
+	cursor: default;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+.progress-button button {
+	font-size: 23px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.alert {
+	padding: 0;
+	padding-left: 4px;
+	border: none;
+	background: none;
+	color: #555;
+	font-weight: bold;
+	line-height: 43px;
+}
+
+h2, .h2 {
+	padding-left: 4px;
+}
+
+footer {
+	padding-top: 15px;
+	padding-bottom: 8px;
+	padding-left: 10px;
+	background: #E9F1EF;
+	color: #1ECD97;
+	font-size: 15px;
+	opacity: 0.6;
+	cursor: default;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	margin-bottom: -27px;
+}
+
+.main {
+	padding-bottom: 40px;
+}
+
+a {
+	padding: 10px;
+    /* height: 20px; */
+	border-radius: 37px;
+	color: #F86486 !important;
+	text-decoration: none !important;
+	font-weight: normal;
+	font-size: 15px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+a:hover {
+	padding: 10px;
+	border-radius: 37px;
+	background-color: #F86486;
+	color: #E9F1EF !important;
+	text-decoration: none;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+a:active {
+	color: #E9F1EF;
+	text-decoration: none;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+a:visited {
+	color: #F86486;
+}
+
+.weibo {
+	font-size: 20px;
+}
+
+.share {
+	padding-top: 10%;
+	padding-right: 8%;
+}
+
+#ticket {
+	display: none;
+	margin-top: 20px;
+	margin-bottom: 38px;
+	font-size: 30px;
+}
+
+@media screen and (min-width:300px) and (max-width:320px) {
+	#showchoise {
+		font-size: 0.8em;
+	}
+
+	.share {
+		margin-top: -4%;
+		margin-right: -9%;
+		padding-top: 1%;
+		padding-right: 0%;
+		transform: scale(0.7);
+	}
+}
+
+@media screen and (min-width:321px) and (max-width:375px) {
+	#showchoise {
+		font-size: 0.9em;
+	}
+
+	.share {
+		margin-right: -9%;
+		padding-top: 2%;
+		padding-right: 0%;
+		transform: scale(0.7);
+	}
+}
+
+@media screen and (min-width:376px) and (max-width:414px) {
+	#showchoise {
+		font-size: 0.9em;
+	}
+
+	.share {
+		padding-top: 2%;
+		padding-right: 8%;
+	}
+}
+
+@media screen and (min-width:415px) and (max-width:639px) {
+	#showchoise {
+		font-size: 0.9em;
+	}
+
+	.share {
+		padding-top: 6%;
+		padding-right: 8%;
+	}
+}
+
+@media screen and (min-width:640px) and (max-width:767px) {
+	#showchoise {
+		font-size: 1.3em;
+		line-height: 1.5em;
+	}
+
+	.share {
+		padding-top: 8%;
+		padding-right: 8%;
+	}
+}
+
+@media screen and (min-width:768px) and (max-width:991px) {
+	#showchoise {
+		font-size: 1.2em;
+		line-height: 1.5em;
+	}
+
+	.share {
+		margin-top: -6%;
+		padding-top: 0%;
+		padding-right: 8%;
+	}
+}
+
+@media screen and (min-width:992px) and (max-width:1200px) {
+	.share {
+		padding-top: 6%;
+		padding-right: 8%;
+	}
+
+	#showchoise {
+		font-size: 1em;
+		line-height: 1.5em;
+	}
+}
+
+#love {
+	opacity: 0;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#copyright:hover span {
+	opacity: 1;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
