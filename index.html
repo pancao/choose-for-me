@@ -47,6 +47,7 @@
 * {
 	outline: none !important;
 	font-family: -apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+
 }
 
 input {
@@ -55,6 +56,7 @@ input {
 
 body {
 	background: #E9F1EF;
+	overflow-x:hidden;
 }
 
 .optionlist {
@@ -151,9 +153,10 @@ body {
 }
 
 #showchoise {
-	margin-top: 14px;
+	margin-top: -31%;
+	padding-left: 5%;
 	border-radius: 0px;
-	font-size: 25px;
+	font-size: 39px;
 }
 
 .option {
@@ -288,7 +291,7 @@ a {
 	padding: 10px;
     /* height: 20px; */
 	border-radius: 37px;
-	color: #F86486;
+	color: #F86486 !important;
 	text-decoration: none !important;
 	font-weight: normal;
 	font-size: 15px;
@@ -302,7 +305,7 @@ a:hover {
 	padding: 10px;
 	border-radius: 37px;
 	background-color: #F86486;
-	color: #E9F1EF;
+	color: #E9F1EF !important;
 	text-decoration: none;
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
@@ -311,7 +314,7 @@ a:hover {
 }
 
 a:active {
-	color: #F86486;
+	color: #E9F1EF;
 	text-decoration: none;
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
@@ -321,16 +324,101 @@ a:active {
 
 a:visited {
 	color: #F86486;
-	text-decoration: none;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
 }
+
 
 .weibo {
 	font-size: 20px;
 }
+
+.share{
+padding-right: 8%;
+    padding-top: 10%;
+}
+
+#ticket{
+	display: none;
+	margin-top: 20px;
+	margin-bottom: 38px;
+	font-size: 30px;
+}
+
+@media screen and (min-width:300px) and (max-width:320px){
+	#showchoise{
+	font-size: 0.8em;
+	
+}
+.share{
+    padding-top: 1%;
+    padding-right: 0%;
+    margin-right: -9%;
+    transform: scale(0.7);
+	margin-top: -4%;
+}
+	}
+
+@media screen and (min-width:321px) and (max-width:375px){
+	#showchoise{
+	font-size: 0.9em;
+}
+.share{
+    padding-top: 2%;
+    padding-right: 0%;
+    margin-right: -9%;
+    transform: scale(0.7);
+}
+	}
+@media screen and (min-width:376px) and (max-width:414px){
+	#showchoise{
+	font-size: 0.9em;
+}
+.share{
+padding-right: 8%;
+    padding-top: 2%;
+}
+	}
+@media screen and (min-width:415px) and (max-width:639px){
+	#showchoise{
+	font-size: 0.9em;
+}
+.share{
+padding-right: 8%;
+    padding-top: 6%;
+}
+	}
+@media screen and (min-width:640px) and (max-width:767px){
+	#showchoise{
+	font-size: 1.3em;
+    line-height: 1.5em;
+}
+.share{
+padding-right: 8%;
+    padding-top: 8%;
+}
+	}
+@media screen and (min-width:768px) and (max-width:991px){
+	#showchoise{
+	font-size: 1.2em;
+    line-height: 1.5em;
+}
+.share{
+    padding-right: 8%;
+    padding-top: 0%;
+    margin-top: -6%;
+}
+	}
+
+@media screen and (min-width:992px) and (max-width:1200px){
+.share{
+padding-right: 8%;
+    padding-top: 6%;
+}
+	#showchoise{
+	font-size: 1em;
+    line-height: 1.5em;
+}
+	}
+
 
   </style>
 </head>
@@ -338,7 +426,7 @@ a:visited {
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3 main">
-            <h3>🎈</h3>
+            <h3><img src="img/logo.svgz"></h3>
             <div class="optionlist">
             <form class="form-horizontal" role="form" id="last-option">
                 <div class="form-group">
@@ -358,9 +446,11 @@ a:visited {
 				<svg class="checkmark" width="70" height="70"><path d="m31.5,46.5l15.3,-23.2"/><path d="m31.5,46.5l-8.5,-7.1"/></svg>
 				<svg class="cross" width="70" height="70"><path d="m35,35l-9.3,-9.3"/><path d="m35,35l9.3,9.3"/><path d="m35,35l-9.3,9.3"/><path d="m35,35l9.3,-9.3"/></svg>
             </div>
+			<div id="ticket"><img src="img/ticket.svgz">
             <div class="alert alert-success" role="alert" id="showchoise">
                 
             </div>
+			</div>
             
             
             <footer>© Copyright Panro 2016</footer>
@@ -392,9 +482,9 @@ a:visited {
     		if (option == "") {
     			$("#" + i).attr("placeholder", "你不写我怎么选？");
     			$("#" + i).addClass("notice");
-    			$("#" + i).addClass("animated shake");
-    			$("#showchoise").removeClass('animated fadeInUp');
-    			$("#showchoise").addClass('animated fadeOut');
+    			$("#" + i).addClass("animated shake");				
+    			$("#ticket").removeClass('animated bounceInLeft');
+    			$("#ticket").addClass('animated fadeOut');
 
     			state = false;
     		} else {
@@ -407,9 +497,10 @@ a:visited {
     	var t = setTimeout(function() {
     		if (state == true) {
     			var choise = parseInt(Math.random() * optionNum);
-    			$("#showchoise").html("我帮你选择了「" + options[choise] + "」。<br><div class='text-right'><a target='_blank' href='http://service.weibo.com/share/share.php?url=http://choose.twopan.cn&ralateUid=1731311442&language=zh_cn&appkey=2982404728&title=我用选择困难解救器选择了「" + options[choise] + "」，此真乃神器也。&searchPic=false'><i class='iconfont weibo'>&#xe619;</i> 分享至微博</div>");
-    			$("#showchoise").removeClass('animated fadeOut');
-    			$("#showchoise").addClass('animated fadeInUp');
+    			$("#showchoise").html("<span class='animated fadeIn'>「" + options[choise] + "」</span><br><div class='text-right share'><a target='_blank' href='http://service.weibo.com/share/share.php?url=http://choose.twopan.cn&ralateUid=1731311442&language=zh_cn&appkey=2982404728&title=我用选择困难解救器选择了「" + options[choise] + "」，此真乃神器也。&searchPic=false'><i class='iconfont weibo'>&#xe619;</i> 分享至微博</div>");
+    			$("#ticket").show();
+    			$("#ticket").removeClass('animated fadeOut');
+    			$("#ticket").addClass('animated bounceInLeft');
     		};
     	}, 2150);
 
